@@ -39,6 +39,7 @@ public class CharacterController : MonoBehaviour
         }
 
         }
+
     // Nerenin üstündeyken zýplamanýn aktif olacaðý
     public void OnCollisionEnter(Collision collision)
     {
@@ -46,6 +47,9 @@ public class CharacterController : MonoBehaviour
         {
             PlayerOnTheGround = true;
         }
+
+
+//>>>>>>> 4fbf6e6e51efa786098569ad09e20011b690a1ab
     }
  
 

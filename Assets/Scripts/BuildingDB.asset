@@ -16,3 +16,6 @@ MonoBehaviour:
   - NAME: DIRT
     ID: 0
     PREFAB: {fileID: 7225895877931898472, guid: e19ce72803cab704fa3f334f2537a966, type: 3}
+  - NAME: Sphere
+    ID: 1
+    PREFAB: {fileID: 3543754567973367071, guid: ee20e59c40e2d5a40819dbd3284ff650, type: 3}
