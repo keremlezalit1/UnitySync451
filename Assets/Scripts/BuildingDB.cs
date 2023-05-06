@@ -5,12 +5,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "BuildingDB")]
 public class BuildingDB : ScriptableObject
 {
-    //Kadirhan Scriptable Object Unityde Database olarak kullanýlýr Bu db'de yapýlacak deðiþiklikler oyunu kapatýp açsan bile kalýr kalýcýdýr
+    //Kadirhan Scriptable Object Unityde Database olarak kullanï¿½lï¿½r Bu db'de yapï¿½lacak deï¿½iï¿½iklikler oyunu kapatï¿½p aï¿½san bile kalï¿½r kalï¿½cï¿½dï¿½r
     [SerializeField]
     public List<Structure> container = new List<Structure>();
 
 }
-
 
 [System.Serializable]
 public class Structure
