@@ -17,7 +17,7 @@ public class ui_main : MonoBehaviour
     private void Awake()
     {
          _instance = this;
-         _elements.setActive(true);
+         _elements.SetActive(true);
     }
 
     private void Start()
@@ -26,7 +26,7 @@ public class ui_main : MonoBehaviour
     }
     private void ShopButtonClicked()
     {
-        ui_shop.instanse._elements.setActive(true);
-        _elements.setActive(false);
+        ui_shop.instanse._elements.SetActive(true);
+        _elements.SetActive(false);
     }
 }

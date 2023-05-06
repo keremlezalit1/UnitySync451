@@ -13,6 +13,6 @@ public class ui_shop : MonoBehaviour
     private void Awake()
     {
          _instance = this;
-         _elements.setActive(false);
+         _elements.SetActive(false);
     }
 }
