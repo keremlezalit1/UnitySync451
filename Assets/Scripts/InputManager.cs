@@ -6,6 +6,8 @@ public class InputManager : MonoBehaviour
 {
     public Vector3 lastPos;
     public LayerMask Placement;
+
+    public RaycastHit _hit;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +31,10 @@ public class InputManager : MonoBehaviour
         {
             lastPos = hit.point;
         }
+
+        _hit = hit;
         return lastPos;
     }
+
+
 }

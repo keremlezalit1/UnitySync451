@@ -27,6 +27,7 @@ public class CharacterController : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRot,RotSpeed * Time.deltaTime);
 
         }
+
     }
 
     private void FixedUpdate()
