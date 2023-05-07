@@ -7,7 +7,7 @@ public class PlacementSystem : MonoBehaviour
 {
     [Header("Serialize Field izleme alaný")]
     [SerializeField]
-    GameObject mouseIndicator,cellIndicator;
+    GameObject structureIndicator,cellIndicator;
     [SerializeField]
     InputManager inpManager;
     [SerializeField]
@@ -16,9 +16,9 @@ public class PlacementSystem : MonoBehaviour
     BuildingDB b_DB;
     [SerializeField]
     bool IsOverUI;
-    [SerializeField]
-    GameObject Structure_Panel;
-
+   
+    [Header("Objects")]
+    
     [Header("Bools")]
     public bool BuildMode;
     [Header("OffSets")]
@@ -26,12 +26,17 @@ public class PlacementSystem : MonoBehaviour
     public Vector3 CelloffSet;
     [Header("Infos")]
     public int ID_index;
-    
+    public bool IsOverSt;
+    public GameObject IsOverSt_Object;
+
     private void Update()
     {
         if (BuildMode)
         {
-            Structure_Panel.SetActive(true);
+            
+            structureIndicator.SetActive(true);
+            cellIndicator.SetActive(true);
+
             //Event System ile mouse UI üzerinde mi deðilmi anlýyoruz
             if (EventSystem.current.IsPointerOverGameObject())
             {
@@ -43,27 +48,60 @@ public class PlacementSystem : MonoBehaviour
             }
 
             Vector3 mousePos = inpManager.GetMouseWorldPosition();
-            mouseIndicator.transform.position = mousePos - MouseoffSet;
+            structureIndicator.transform.position = mousePos - MouseoffSet;
 
             Vector3Int mousePosInt = new Vector3Int((int)mousePos.x, (int)mousePos.y, (int)mousePos.z);
             Vector3 gridPos = grid.CellToWorld(mousePosInt);
             cellIndicator.transform.position = gridPos - CelloffSet;
 
-            
-            if (Input.GetMouseButtonDown(0) && !IsOverUI && inpManager._hit.collider.tag == "Plane")
+
+            #region Mouse Raycast
+            Vector3 mousePos_ = Input.mousePosition;
+            mousePos_.z = Camera.main.nearClipPlane;
+            Ray ray = Camera.main.ScreenPointToRay(mousePos_);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, 100))
+            {
+               
+            }
+            #endregion
+
+
+            if (Input.GetMouseButtonDown(0) && !IsOverUI && !IsOverSt)
             {
                 var b = Instantiate(b_DB.container[ID_index].PREFAB);
                 b.transform.position = mousePosInt - MouseoffSet;
             }
             else
             {
-                Debug.Log("Baþka obje var");
+                
+            }
+
+            if (Input.GetMouseButtonDown(1) && IsOverSt && IsOverSt_Object)
+            {
+
+              if (IsOverSt_Object.tag == "Dirt")
+              {
+                  Debug.Log("FUCKER");
+                  Destroy(IsOverSt_Object);
+                  IsOverSt = false;
+              }
+                
             }
         }
         else
         {
-            Structure_Panel.SetActive(false);
+ 
+
+
+            structureIndicator.SetActive(false);
+            cellIndicator.SetActive(false);
         }
              
+    }
+
+    private void Start()
+    {
+        IsOverSt = false;
     }
 }

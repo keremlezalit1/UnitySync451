@@ -8,6 +8,7 @@ public class CharacterController : MonoBehaviour
     public Rigidbody rb;
     public float Speed;
     public float RotSpeed;
+    public float JumpValue = 4;
     public bool PlayerOnTheGround;
     // Start is called before the first frame update
     void Start()
@@ -34,7 +35,7 @@ public class CharacterController : MonoBehaviour
         }// Zýplama
         if (Input.GetButtonDown("Jump") && PlayerOnTheGround) { 
             //rb.AddForce(new Vector3(0, 8, 0), ForceMode.Impulse);
-            rb.velocity = new Vector3(0, 8, 0);
+            rb.velocity = new Vector3(0, JumpValue, 0);
             PlayerOnTheGround = false;
         }
 

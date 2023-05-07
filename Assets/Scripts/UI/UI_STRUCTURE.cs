@@ -8,7 +8,10 @@ public class UI_STRUCTURE : MonoBehaviour
 
     public GameObject OpenButton;
     public GameObject CloseButton;
-
+    public GameObject Others;
+    public GameObject BuildPanel;
+    public GameObject PlantPanel;
+    public GameObject ChoisePanel;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +29,8 @@ public class UI_STRUCTURE : MonoBehaviour
     {
         placement_sys.BuildMode = true;
         CloseButton.SetActive(true);
+        Others.SetActive(true);
+        ChoisePanel.SetActive(true);
         OpenButton.SetActive(false);
     }
 
@@ -33,11 +38,27 @@ public class UI_STRUCTURE : MonoBehaviour
     {
         placement_sys.BuildMode = false;
         CloseButton.SetActive(false);
+        Others.SetActive(false);
+        ChoisePanel.SetActive(false);
+        BuildPanel.SetActive(false);
+        PlantPanel.SetActive(false);
         OpenButton.SetActive(true);
     }
 
     public void SelectStructure(int index)
     {
         placement_sys.ID_index = index;
+    }
+
+    public void OpenBuildPanel()
+    {
+        BuildPanel.SetActive(true);
+        PlantPanel.SetActive(false);
+    }
+
+    public void OpenPlantPanel()
+    {
+        BuildPanel.SetActive(false);
+        PlantPanel.SetActive(true);
     }
 }
