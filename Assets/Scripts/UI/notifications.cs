@@ -2,12 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dirt_Data : MonoBehaviour
+public class notifications : MonoBehaviour
 {
-
-    public GameObject Plant_Area;
-    public int Stage;
-    public bool IsPlanted;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,5 +14,10 @@ public class Dirt_Data : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void DestroyNotification()
+    {
+        Destroy(gameObject);
     }
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Plane
   - Dirt
+  - Notification
   layers:
   - Default
   - TransparentFX

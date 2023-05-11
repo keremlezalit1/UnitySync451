@@ -50,15 +50,22 @@ public class UI_STRUCTURE : MonoBehaviour
         placement_sys.ID_index = index;
     }
 
+    public void SelectPlant(int index)
+    {
+        placement_sys.PLANT_ID_index = index;
+    }
+
     public void OpenBuildPanel()
     {
         BuildPanel.SetActive(true);
         PlantPanel.SetActive(false);
+        placement_sys.PlantMode = false;
     }
 
     public void OpenPlantPanel()
     {
         BuildPanel.SetActive(false);
         PlantPanel.SetActive(true);
+        placement_sys.PlantMode = true;
     }
 }
